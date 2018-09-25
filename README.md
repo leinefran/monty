@@ -1,4 +1,4 @@
 # monty
 
-
-lalala
+## Authors
+Leine Valente, Jinji Zhang
