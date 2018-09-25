@@ -17,8 +17,8 @@ void push(stack_t **stack, unsigned int line_number)
 		fprintf(stderr, "Error: malloc failed\n");
 		exit(EXIT_FAILURE);
 	}
-	new->n = line_number;
-	new->next = *head;
+	new->n = line_number; //will have to change to pull the right
+	new->next = *head;    //element at the given line number
 	new->prev = NULL;
 	if (*head)
 		(*head)->prev = new;
