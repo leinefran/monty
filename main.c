@@ -10,6 +10,8 @@
 int main(int argc, char *argv[])
 {
 	int fd;
+	char *buf;
+	char **arg;
 
 	if (argc != 2)
 	{
@@ -22,5 +24,6 @@ int main(int argc, char *argv[])
 		fprintf(stderr, "Error: Can't open file %s\n", argv[1]);
 		exit(EXIT_FAILURE);
 	}
+
 	return (EXIT_SUCCESS);
 }

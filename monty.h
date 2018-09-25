@@ -5,6 +5,22 @@
 #include <stdlib.h>
 
 /**
+ * struct opcode_s
+ * @op: opcode string
+ * @arg: argument following opcode (optional for some opcodes)
+ * @next: pointer to next node in list
+ *
+ * Description: singly linked list of Monty ByteCode instructions.
+ * Each node contains one line of opcode instructions
+ */
+typedef struct opcode_s
+{
+	char *op;
+	int arg;
+	struct opcode_s *next;
+} opcode_t;
+
+/**
  * struct stack_s - doubly linked list representation of a stack (or queue)
  * @n: integer
  * @prev: points to the previous element of the stack (or queue)
@@ -35,6 +51,8 @@ typedef struct instruction_s
 } instruction_t;
 
 
+int word_count(char *str);
+char **split_string(char *str);
 void push(stack_t **stack, unsigned int line_number);
 void pall(stack_t **stack, unsigned int line_number);
 
