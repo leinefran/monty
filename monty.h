@@ -16,7 +16,7 @@
 typedef struct opcode_s
 {
 	char *op;
-	int arg;
+	char *arg;
 	struct opcode_s *next;
 } opcode_t;
 
