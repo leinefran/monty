@@ -39,7 +39,7 @@ void check_valid_instruc(int status, unsigned int line_number, char *opcode)
 {
 	if (status == -1)
 	{
-		fprintf(stderr, "L%ud: unknown instruction %s\n",
+		fprintf(stderr, "L%u: unknown instruction %s\n",
 			line_number, opcode);
 		exit(EXIT_FAILURE);
 	}
