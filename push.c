@@ -21,11 +21,19 @@ void push(stack_t **stack, unsigned int line_number)
 	new->n = atoi(get_value_at_node_index(line_number));
 	if (new->n == 0)
 	{
-		fprintf(stderr, "L%ud: usage: push integer\n", line_number);
+		fprintf(stderr, "L%u: usage: push integer\n", line_number);
+		exit(EXIT_FAILURE);
 	}
 	new->next = *stack;    /* element at the given line number */
 	new->prev = NULL;
-	if (*stack)
+	printf("hi leine\n");
+	if (*stack == NULL)
+	{
+		*stack = new;
+	}
+	else
+	{
 		(*stack)->prev = new;
-	*stack = new;
+		printf("hi jinji\n");
+	}
 }

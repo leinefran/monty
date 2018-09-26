@@ -24,7 +24,6 @@ void (*get_instruc_func(char *s, int *status))
 	{
 		if (strcmp(s, ops[i].opcode) == 0)
 		{
-			printf("found it\n");
 			*status = 0;
 			return (ops[i].f);
 		}
