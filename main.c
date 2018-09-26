@@ -9,7 +9,7 @@
  */
 int main(int argc, char *argv[])
 {
-	int fd;
+	int fd, i;
 	FILE *fpointer;
 	size_t bufsize = 0;
 	char *buf;
@@ -33,11 +33,17 @@ int main(int argc, char *argv[])
 	/* build a singly linked list of Monty ByteCode instructions */
 	while (getline(&buf, &bufsize, fpointer) != EOF)
 	{
+		i = strlen(buf);
+		if (i > 0)
+			buf[i - 1] = '\0';
+
 		words = split_string(buf);
+		printf("%s %s lol\n", words[0], words[1]);
 		if (!words)
 			continue;
 		add_node_end(&head, words);
 	}
 
+	printf("op: %s, arg: %s\n", head->op, head->arg);
 	return (EXIT_SUCCESS);
 }
