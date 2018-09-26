@@ -20,7 +20,6 @@ opcode_t *add_node_end(opcode_t **head, char **words)
         new->op = words[0];
         if (words[1])
 	{
-		printf("words[0] is %s, words[1] is %s\n", words[0], words[1]);
                 new->arg = words[1];
         }
 	else
@@ -32,13 +31,11 @@ opcode_t *add_node_end(opcode_t **head, char **words)
         if (*head == NULL)
         {
                 *head = new;
-		printf("new->op is %s\n", new->op);
         }
         else
         {
                 for (i = *head; i->next != NULL; i = i->next)
                         ;
-		printf("new->op is %s\n", new->op);
                 i->next = new;
         }
         return (new);

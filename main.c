@@ -15,6 +15,7 @@ int main(int argc, char *argv[])
 	char *buf;
 	char **words;
 	opcode_t *head = NULL;
+	opcode_t *tmp;
 
 	if (argc != 2)
 	{
@@ -36,14 +37,12 @@ int main(int argc, char *argv[])
 		i = strlen(buf);
 		if (i > 0)
 			buf[i - 1] = '\0';
-
 		words = split_string(buf);
-		printf("%s %s lol\n", words[0], words[1]);
 		if (!words)
 			continue;
 		add_node_end(&head, words);
 	}
-
-	printf("op: %s, arg: %s\n", head->op, head->arg);
+	for (tmp = head; tmp; tmp = tmp->next)
+		printf("op: %s, arg: %s\n", tmp->op, tmp->arg);
 	return (EXIT_SUCCESS);
 }

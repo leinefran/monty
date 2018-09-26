@@ -55,7 +55,7 @@ char **split_string(char *str)
 	/* loop to tokenize and store the pointer to each word in array */
 	while (token)
 	{
-		words[i] = token;
+		words[i] = strdup(token);
 		token = strtok(NULL, " ");
 		i++;
 	}
