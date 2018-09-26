@@ -17,6 +17,8 @@ int main(int argc, char *argv[])
 	char *buf;
 	char **words = NULL;
 	stack_t *stack, *tmp;
+
+	stack = tmp;
 /*	opcode_t *lol; */
 
 	check_arguments(argc);
@@ -49,6 +51,7 @@ int main(int argc, char *argv[])
         fpointer = fdopen(fd, "r");
 
 	line_num = 1;
+	/* read file line by line, call appropriate opcode */
 	while (getline(&buf, &bufsize, fpointer) != EOF)
         {
                 i = strlen(buf);
