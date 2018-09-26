@@ -50,7 +50,6 @@ int main(int argc, char *argv[])
 	/* read file line by line, call appropriate opcode */
 	while (getline(&buf, &bufsize, fpointer) != EOF)
         {
-		printf("line number: %u\n", line_num);
                 i = strlen(buf);
                 if (i > 0)
                         buf[i - 1] = '\0';
@@ -72,7 +71,6 @@ int main(int argc, char *argv[])
 
 	for (tmp = stack; tmp; tmp = tmp->next)
 		printf("stack value is %d\n", tmp->n);
-	printf("test\n");
 
 	return (EXIT_SUCCESS);
 }
