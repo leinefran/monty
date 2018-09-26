@@ -26,7 +26,7 @@ void push(stack_t **stack, unsigned int line_number)
 	}
 	new->next = *stack;    /* element at the given line number */
 	new->prev = NULL;
-	printf("hi leine\n");
+
 	if (*stack == NULL)
 	{
 		*stack = new;
@@ -34,6 +34,6 @@ void push(stack_t **stack, unsigned int line_number)
 	else
 	{
 		(*stack)->prev = new;
-		printf("hi jinji\n");
+		*stack = new;
 	}
 }

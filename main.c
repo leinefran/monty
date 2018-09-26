@@ -69,8 +69,8 @@ int main(int argc, char *argv[])
 
 		line_num++;
 	}
-	i = 0;
-	for (tmp = stack; i < 2; tmp = tmp->next)
+
+	for (tmp = stack; tmp; tmp = tmp->next)
 		printf("stack value is %d\n", tmp->n);
 	printf("test\n");
 
