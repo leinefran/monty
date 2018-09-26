@@ -17,7 +17,11 @@ void push(stack_t **stack, unsigned int line_number)
 		fprintf(stderr, "Error: malloc failed\n");
 		exit(EXIT_FAILURE);
 	}
-	new->n = line_number; //will have to change to pull the right
+	new->n = atoi(get_value_at_node_index(line_number));
+	if (new->n == 0)
+	{
+		fprintf(stderr, "L%ud: usage: push integer\n", line_number);
+	}
 	new->next = *head;    //element at the given line number
 	new->prev = NULL;
 	if (*head)

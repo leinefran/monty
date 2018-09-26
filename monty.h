@@ -54,10 +54,12 @@ typedef struct instruction_s
         void (*f)(stack_t **stack, unsigned int line_number);
 } instruction_t;
 
+extern opcode_t *head;
 
 int word_count(char *str);
 char **split_string(char *str);
 opcode_t *add_node_end(opcode_t **head, char **words);
+char *get_value_at_node_index(unsigned int line_number);
 void push(stack_t **stack, unsigned int line_number);
 void pall(stack_t **stack, unsigned int line_number);
 

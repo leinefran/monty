@@ -13,7 +13,7 @@ int main(int argc, char *argv[])
 	FILE *fpointer;
 	size_t bufsize = 0;
 	char *buf;
-	char **words;
+	char **words = NULL;
 	opcode_t *head = NULL;
 	opcode_t *tmp;
 
