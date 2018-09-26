@@ -14,6 +14,7 @@ void (*get_instruc_func(char *s, int *status))
 {
 	instruction_t ops[] = {
 		{"push", push},
+		{"pall", pall},
 		{NULL, NULL}
 	};
 	int i;
