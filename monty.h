@@ -63,7 +63,7 @@ void check_valid_instruc(int status, unsigned int line_number, char *opcode);
 
 void (*get_instruc_func(char *s, int *status))(stack_t **stack,
 					       unsigned int line_number);
-
+int isnumber(char *s);
 int word_count(char *str);
 char **split_string(char *str);
 opcode_t *add_node_end(opcode_t **head, char **words);
