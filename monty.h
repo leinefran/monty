@@ -2,6 +2,7 @@
 #define MONTY_H
 
 #include <stdio.h>
+#include <unistd.h>
 #include <stdlib.h>
 #include <string.h>
 #include <sys/types.h>
@@ -55,6 +56,13 @@ typedef struct instruction_s
 } instruction_t;
 
 extern opcode_t *head;
+
+void check_arguments(int argc);
+void file_open_status(int fd, char *argv[]);
+void check_valid_instruc(int status, unsigned int line_number, char *opcode);
+
+void (*get_instruc_func(char *s, int *status))(stack_t **stack,
+					       unsigned int line_number);
 
 int word_count(char *str);
 char **split_string(char *str);
