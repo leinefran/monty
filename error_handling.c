@@ -37,7 +37,7 @@ void file_open_status(int fd, char *argv[])
  */
 void check_valid_instruc(int status, unsigned int line_number, char *opcode)
 {
-	printf("lool\n");
+
 	if (status == -1)
 	{
 		fprintf(stderr, "L%ud: unknown instruction %s\n",

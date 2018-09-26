@@ -16,8 +16,8 @@ int main(int argc, char *argv[])
 	size_t bufsize = 0;
 	char *buf;
 	char **words = NULL;
-	stack_t *stack, *tmp;
-/*	opcode_t *lol; */
+	stack_t *stack = NULL;
+	stack_t *tmp;
 
 	check_arguments(argc);
 
@@ -38,9 +38,7 @@ int main(int argc, char *argv[])
 		add_node_end(&head, words);
 	}
 	free(words);
-/*	for (lol = head; lol; lol = lol->next)
-		printf("%s %s\n", lol->op, lol->arg);
-*/
+
 	close(fd);
 	fclose(fpointer);
 
@@ -51,20 +49,27 @@ int main(int argc, char *argv[])
 	line_num = 1;
 	while (getline(&buf, &bufsize, fpointer) != EOF)
         {
+		printf("line number: %u\n", line_num);
                 i = strlen(buf);
                 if (i > 0)
                         buf[i - 1] = '\0';
                 words = split_string(buf);
                 if (!words)
                         continue;
-
 		get_instruc_func(words[0], &status)(&stack, line_num);
-		printf("%d\n", status);
-		check_valid_instruc(status, line_num, words[0]);
+/*		printf("%d\n", status);
+		is_valid = check_valid_instruc(status, line_num, words[0]);*/
+		if (status == -1)
+		{
+			fprintf(stderr, "L%ud: unknown instruction %s\n",
+				line_num, words[0]);
+			exit(EXIT_FAILURE);
+		}
+
 		line_num++;
 	}
-
-	for (tmp = stack; tmp; tmp = tmp->next)
+	i = 0;
+	for (tmp = stack; i < 2; tmp = tmp->next)
 		printf("stack value is %d\n", tmp->n);
 	printf("test\n");
 
