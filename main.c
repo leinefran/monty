@@ -17,7 +17,7 @@ int main(int argc, char *argv[])
 	char *buf;
 	char **words = NULL;
 	stack_t *stack = NULL;
-	stack_t *tmp;
+/*	stack_t *tmp; */
 
 	check_arguments(argc);
 
@@ -69,8 +69,8 @@ int main(int argc, char *argv[])
 		line_num++;
 	}
 
-	for (tmp = stack; tmp; tmp = tmp->next)
-		printf("stack value is %d\n", tmp->n);
+/*	for (tmp = stack; tmp; tmp = tmp->next)
+	printf("stack value is %d\n", tmp->n); */
 
 	return (EXIT_SUCCESS);
 }
