@@ -11,7 +11,7 @@ opcode_t *head = NULL;
 int main(int argc, char *argv[])
 {
 	int fd, i, status;
-	unsigned int line_num;
+	unsigned int line_num, blank_lines;
 	FILE *fpointer;
 	size_t bufsize = 0;
 	char *buf;
@@ -43,10 +43,10 @@ int main(int argc, char *argv[])
 	fclose(fpointer);
 
 	fd = open(argv[1], O_RDONLY);
-        file_open_status(fd, argv);
-        fpointer = fdopen(fd, "r");
+	file_open_status(fd, argv);
+	fpointer = fdopen(fd, "r");
 
-	line_num = 1;
+	line_num = 1, blank_lines = 0;
 	/* read file line by line, call appropriate opcode */
 	while (getline(&buf, &bufsize, fpointer) != EOF)
         {
@@ -55,8 +55,14 @@ int main(int argc, char *argv[])
                         buf[i - 1] = '\0';
                 words = split_string(buf);
                 if (!words)
+		{
+			line_num++;
+			blank_lines++;
                         continue;
-		get_instruc_func(words[0], &status)(&stack, line_num);
+		}
+		get_instruc_func(words[0], &status)(&stack,
+						    line_num - blank_lines);
+
 /*		printf("%d\n", status);
 		is_valid = check_valid_instruc(status, line_num, words[0]);*/
 		if (status == -1)
