@@ -43,9 +43,10 @@ int main(int argc, char *argv[])
 	fclose(fpointer);
 
 	fd = open(argv[1], O_RDONLY);
-        file_open_status(fd, argv);
-        fpointer = fdopen(fd, "r");
+	file_open_status(fd, argv);
+	fpointer = fdopen(fd, "r");
 
+<<<<<<< HEAD
 	line_num = 1, blank_lines = 0;
 	/* read file line by line, call appropriate opcode */
 	while (getline(&buf, &bufsize, fpointer) != EOF)
