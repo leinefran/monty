@@ -68,6 +68,6 @@ $ gcc -Wall -Werror -Wextra -pedantic *.c -o monty
 
 ### Authors
 
-[Jinji](https://github.com/iamzinzi)(https://www.linkedin.com/in/jinji-zhang/)
+[Jinji](https://github.com/iamzinzi)
 
-[Leine Valente](https://github.com/leinefran)(https://www.linkedin.com/in/leine-francisca-valente-b6b06413/)
+[Leine Valente](https://github.com/leinefran)
