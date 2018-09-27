@@ -62,6 +62,7 @@ int main(int argc, char *argv[])
 		}
 		get_instruc_func(words[0], &status)(&stack,
 						    line_num - blank_lines);
+
 /*		printf("%d\n", status);
 		is_valid = check_valid_instruc(status, line_num, words[0]);*/
 		if (status == -1)

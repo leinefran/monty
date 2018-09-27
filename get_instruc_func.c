@@ -33,3 +33,5 @@ void (*get_instruc_func(char *s, int *status))(stack_t **stack,
 	*status = -1;
 	exit(-1);
 }
+
+// move error checking in here
