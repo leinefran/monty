@@ -42,7 +42,7 @@ void check_valid_instruc(char *s, unsigned int line_num)
 {
 	int i;
 	char *valid_commands[] = {"push", "pall", "pint",
-				  "pop", "swap", NULL};
+				  "pop", "swap", "add", NULL};
 
 	for (i = 0; valid_commands[i]; i++)
 	{
