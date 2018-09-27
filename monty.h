@@ -76,4 +76,8 @@ void pint(stack_t **stack, unsigned int line_number);
 void pop(stack_t **stack, unsigned int line_number);
 void nop(stack_t **stack, unsigned int line_number);
 
+void simple_pop(stack_t **stack);
+void clear_stack(stack_t **h);
+void free_opcode_list(opcode_t **head);
+void free_array(char **arr);
 #endif /* MONTY_H */

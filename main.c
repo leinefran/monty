@@ -14,10 +14,9 @@ int main(int argc, char *argv[])
 	unsigned int line_num;
 	FILE *fpointer;
 	size_t bufsize = 0;
-	char *buf;
+	char *buf = NULL;
 	char **words = NULL;
 	stack_t *stack = NULL;
-/*	stack_t *tmp; */
 
 	check_arguments(argc);
 
@@ -34,12 +33,16 @@ int main(int argc, char *argv[])
 			buf[i - 1] = '\0';
 		words = split_string(buf);
 		if (words)
+		{
 			add_node_end(&head, words);
+		}
 		else
+		{
 			add_empty_node(&head);
+		}
 	}
-	free(words);
-
+	free(buf);
+	free_array(words);
 	close(fd);
 	fclose(fpointer);
 
@@ -55,18 +58,25 @@ int main(int argc, char *argv[])
                 if (i > 0)
                         buf[i - 1] = '\0';
                 words = split_string(buf);
+
                 if (!words)
 		{
 			line_num++;
                         continue;
 		}
+
 		check_valid_instruc(words[0], line_num);
 		get_instruc_func(words[0])(&stack, line_num);
+	printf("hi\n");
+
 		line_num++;
+
 	}
-
-/*	for (tmp = stack; tmp; tmp = tmp->next)
-	printf("stack value is %d\n", tmp->n); */
-
+	close(fd);
+        fclose(fpointer);
+	free(buf);
+	free_array(words);
+	clear_stack(&stack);
+	free_opcode_list(&head);
 	return (EXIT_SUCCESS);
 }

@@ -18,6 +18,7 @@ void push(stack_t **stack, unsigned int line_number)
 		fprintf(stderr, "Error: malloc failed\n");
 		exit(EXIT_FAILURE);
 	}
+
 	status = isnumber(get_value_at_node_index(line_number));
 	if (status == -1)
 	{

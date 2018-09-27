@@ -5,6 +5,10 @@ int isnumber(char *s)
 	unsigned int i;
 
 	i = 0;
+
+	if (!s)
+		return (-1);
+
 	if (*s == '-' || *s == '+')
 	{
 		s++;
