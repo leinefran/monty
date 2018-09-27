@@ -1,5 +1,12 @@
 #include "monty.h"
 
+/**
+ * isnumber - checks if the argv[2] is a number
+ * @s: a pointer to the 3nd argument
+ *
+ * Return: 1 on success; otherwise, -1.
+ */
+
 int isnumber(char *s)
 {
 	unsigned int i;
