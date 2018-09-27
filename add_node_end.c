@@ -41,3 +41,34 @@ opcode_t *add_node_end(opcode_t **head, char **words)
 	}
 	return (new);
 }
+
+/**
+ * add_empty_node - adds empty node to instruction list when for empty lines
+ * @head: pointer to first node in linked list
+ */
+void add_empty_node(opcode_t **head)
+{
+	opcode_t *new, *i;
+
+        new = malloc(sizeof(opcode_t));
+        if (new == NULL)
+        {
+                fprintf(stderr, "Error: malloc failed\n");
+                exit(EXIT_FAILURE);
+        }
+
+	new->op = "nop";
+	new->arg = NULL;
+	new->next = NULL;
+
+	if (*head == NULL)
+        {
+                *head = new;
+        }
+        else
+        {
+                for (i = *head; i->next != NULL; i = i->next)
+                        ;
+                i->next = new;
+        }
+}

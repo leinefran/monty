@@ -67,8 +67,10 @@ int isnumber(char *s);
 int word_count(char *str);
 char **split_string(char *str);
 opcode_t *add_node_end(opcode_t **head, char **words);
+void add_empty_node(opcode_t **head);
 char *get_value_at_node_index(unsigned int line_number);
 void push(stack_t **stack, unsigned int line_number);
 void pall(stack_t **stack, unsigned int line_number);
+void nop(stack_t **stack, unsigned int line_number);
 
 #endif /* MONTY_H */
