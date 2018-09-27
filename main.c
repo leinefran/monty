@@ -10,7 +10,7 @@
 opcode_t *head = NULL;
 int main(int argc, char *argv[])
 {
-	int fd, i, status;
+	int fd, i;
 	unsigned int line_num;
 	FILE *fpointer;
 	size_t bufsize = 0;
@@ -61,8 +61,7 @@ int main(int argc, char *argv[])
                         continue;
 		}
 		check_valid_instruc(words[0], line_num);
-		get_instruc_func(words[0], &status)(&stack,
-						    line_num);
+		get_instruc_func(words[0])(&stack, line_num);
 		line_num++;
 	}
 
