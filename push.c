@@ -22,7 +22,7 @@ void push(stack_t **stack, unsigned int line_number)
 	if (status == -1)
 	{
 		fprintf(stderr, "L%u: usage: push integer\n", line_number);
-                exit(EXIT_FAILURE);
+		exit(EXIT_FAILURE);
 	}
 	else
 	{
