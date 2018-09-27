@@ -9,13 +9,14 @@
  *
  * Return: a pointer to the corresponding function
  */
-void (*get_instruc_func(char *s, int *status))(stack_t **stack,
+void (*get_instruc_func(char *s))(stack_t **stack,
 					       unsigned int line_number)
 {
 	instruction_t ops[] = {
 		{"push", push},
 		{"pall", pall},
 		{"pint", pint},
+		{"pop", pop},
 		{NULL, NULL}
 	};
 	int i;
@@ -26,11 +27,9 @@ void (*get_instruc_func(char *s, int *status))(stack_t **stack,
 	{
 		if (strcmp(s, ops[i].opcode) == 0)
 		{
-			*status = 0;
 			return (ops[i].f);
 		}
 		i++;
 	}
-	*status = -1;
 	exit(-1);
 }

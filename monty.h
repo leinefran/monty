@@ -62,8 +62,7 @@ void check_arguments(int argc);
 void file_open_status(int fd, char *argv[]);
 void check_valid_instruc(char *s, unsigned int line_num);
 
-void (*get_instruc_func(char *s, int *status))(stack_t **stack,
-					       unsigned int line_number);
+void (*get_instruc_func(char *s))(stack_t **stack, unsigned int line_number);
 int isnumber(char *s);
 int word_count(char *str);
 char **split_string(char *str);
@@ -74,6 +73,7 @@ char *get_opcode_at_node_index(unsigned int line_number);
 void push(stack_t **stack, unsigned int line_number);
 void pall(stack_t **stack, unsigned int line_number);
 void pint(stack_t **stack, unsigned int line_number);
+void pop(stack_t **stack, unsigned int line_number);
 void nop(stack_t **stack, unsigned int line_number);
 
 #endif /* MONTY_H */

@@ -41,7 +41,7 @@ void file_open_status(int fd, char *argv[])
 void check_valid_instruc(char *s, unsigned int line_num)
 {
 	int i;
-	char *valid_commands[] = {"push", "pall", "pint", NULL};
+	char *valid_commands[] = {"push", "pall", "pint", "pop", NULL};
 
 	for (i = 0; valid_commands[i]; i++)
 	{
