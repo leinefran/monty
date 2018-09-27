@@ -2,7 +2,7 @@
 
 /**
  * pall - print all elements of stack
- * @stack: address to pointer to top of the stac
+ * @stack: address to pointer to top of the stack
  * @line_number: line_number, voided argument
  */
 void pall(stack_t **stack, unsigned int line_number)
