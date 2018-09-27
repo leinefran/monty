@@ -60,18 +60,9 @@ int main(int argc, char *argv[])
 			line_num++;
                         continue;
 		}
+		check_valid_instruc(words[0], line_num);
 		get_instruc_func(words[0], &status)(&stack,
 						    line_num);
-
-/*		printf("%d\n", status);
-		is_valid = check_valid_instruc(status, line_num, words[0]);*/
-		if (status == -1)
-		{
-			fprintf(stderr, "L%ud: unknown instruction %s\n",
-				line_num, words[0]);
-			exit(EXIT_FAILURE);
-		}
-
 		line_num++;
 	}
 

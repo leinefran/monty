@@ -38,12 +38,17 @@ void file_open_status(int fd, char *argv[])
  *
  * exits with EXIT_FAILURE if appropriate
  */
-void check_valid_instruc(int status, unsigned int line_number, char *opcode)
+void check_valid_instruc(char *s, unsigned int line_num)
 {
-	if (status == -1)
+	int i;
+	char *valid_commands[] = {"push", "pall", "pint", NULL};
+
+	for (i = 0; valid_commands[i]; i++)
 	{
-		fprintf(stderr, "L%u: unknown instruction %s\n",
-			line_number, opcode);
-		exit(EXIT_FAILURE);
+		if (strcmp(valid_commands[i], s) == 0)
+			return;
 	}
+	fprintf(stderr, "L%u: unknown instruction %s\n",
+		line_num, s);
+	exit(EXIT_FAILURE);
 }

@@ -60,7 +60,7 @@ extern opcode_t *head;
 
 void check_arguments(int argc);
 void file_open_status(int fd, char *argv[]);
-void check_valid_instruc(int status, unsigned int line_number, char *opcode);
+void check_valid_instruc(char *s, unsigned int line_num);
 
 void (*get_instruc_func(char *s, int *status))(stack_t **stack,
 					       unsigned int line_number);
