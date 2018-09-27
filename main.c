@@ -41,7 +41,7 @@ int main(int argc, char *argv[])
 			add_empty_node(&head);
 		}
 	}
-	free(buf);
+
 	free_array(words);
 	close(fd);
 	fclose(fpointer);
@@ -67,15 +67,12 @@ int main(int argc, char *argv[])
 
 		check_valid_instruc(words[0], line_num);
 		get_instruc_func(words[0])(&stack, line_num);
-	printf("hi\n");
-
 		line_num++;
-
 	}
 	close(fd);
         fclose(fpointer);
-	free(buf);
 	free_array(words);
+	free(buf);
 	clear_stack(&stack);
 	free_opcode_list(&head);
 	return (EXIT_SUCCESS);

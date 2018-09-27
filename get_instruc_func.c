@@ -17,6 +17,7 @@ void (*get_instruc_func(char *s))(stack_t **stack,
 		{"pall", pall},
 		{"pint", pint},
 		{"pop", pop},
+		{"swap", swap},
 		{NULL, NULL}
 	};
 	int i;
