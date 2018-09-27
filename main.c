@@ -43,21 +43,21 @@ int main(int argc, char *argv[])
 	fclose(fpointer);
 
 	fd = open(argv[1], O_RDONLY);
-        file_open_status(fd, argv);
-        fpointer = fdopen(fd, "r");
+	file_open_status(fd, argv);
+	fpointer = fdopen(fd, "r");
 
 	line_num = 1;
-	/* read file line by line, call appropriate opcode */
+        /* read file line by line, call appropriate opcode */
 	while (getline(&buf, &bufsize, fpointer) != EOF)
-        {
-                i = strlen(buf);
-                if (i > 0)
-                        buf[i - 1] = '\0';
-                words = split_string(buf);
-                if (!words)
-                        continue;
+	{
+		i = strlen(buf);
+		if (i > 0)
+			buf[i - 1] = '\0';
+		words = split_string(buf);
+		if (!words)
+			continue;
 		get_instruc_func(words[0], &status)(&stack, line_num);
-/*		printf("%d\n", status);
+/*printf("%d\n", status);
 		is_valid = check_valid_instruc(status, line_num, words[0]);*/
 		if (status == -1)
 		{
