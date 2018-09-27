@@ -17,5 +17,5 @@ char *get_opcode_at_node_index(unsigned int line_number)
 	{
 		tmp = tmp->next;
 	}
-	return (tmp->opcode);
+	return (tmp->op);
 }
