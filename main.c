@@ -22,6 +22,11 @@ int main(int argc, char *argv[])
 
 	/* gets file pointer from a file descriptor */
 	fpointer = fdopen(fd, "r");
+	if (fpointer == NULL)
+	{
+		fprintf(stderr, "Error: Can't open file %s\n", argv[1]);
+		exit(EXIT_FAILURE);
+	}
 	/* read file line by line, call appropriate opcode */
 	line_number = 1;
 	while (getline(&buf, &bufsize, fpointer) != EOF)
