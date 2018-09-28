@@ -36,5 +36,5 @@ int main(int argc, char *argv[])
         fclose(fpointer);
 	free(buf);
 	clear_stack(&stack);
-	return (0);
+	return (EXIT_SUCCESS);
 }
