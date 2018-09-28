@@ -52,9 +52,6 @@ void (*get_instruc_func(char *s))(stack_t **stack, unsigned int line_number);
 int isnumber(char *s);
 int word_count(char *str);
 char **split_string(char *str);
-opcode_t *add_node_end(opcode_t **head, char **words);
-void add_empty_node(opcode_t **head);
-char *get_value_at_node_index(unsigned int line_number);
 
 void push(stack_t **stack, unsigned int line_number);
 void pall(stack_t **stack, unsigned int line_number);
@@ -66,6 +63,6 @@ void nop(stack_t **stack, unsigned int line_number);
 
 void simple_pop(stack_t **stack);
 void clear_stack(stack_t **h);
-void free_opcode_list(opcode_t **head);
 void free_array(char **arr);
+
 #endif /* MONTY_H */

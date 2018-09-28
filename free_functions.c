@@ -1,23 +1,6 @@
 #include "monty.h"
 
 /**
- * free_opcode_list - frees singly linked list of opcode_t nodes
- * @head: address of pointer to head of linked list
- */
-void free_opcode_list(opcode_t **head)
-{
-	opcode_t *tmp;
-
-	tmp = *head;
-	while (*head)
-	{
-		*head = (*head)->next;
-		free(tmp);
-		tmp = *head;
-	}
-}
-
-/**
  * clear_stack - clears stack of doubly linked list
  * @h: address of pointer to top of stack
  */
