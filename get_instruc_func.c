@@ -4,13 +4,10 @@
  * get_instruc_func - a function that reads command string and selects
  * the correct function to perform
  * @s: command string
- * @status: pointer to integer that will be set to 0 on success
- * @line_number: the number of line count
  *
  * Return: a pointer to the corresponding function
  */
-void (*get_instruc_func(char *s))(stack_t **stack,
-					       unsigned int line_number)
+void (*get_instruc_func(char *s))(stack_t **stack, unsigned int line_number)
 {
 	instruction_t ops[] = {
 		{"pall", pall},

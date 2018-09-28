@@ -35,18 +35,18 @@ void pop(stack_t **stack, unsigned int line_number)
  */
 void simple_pop(stack_t **stack)
 {
-        stack_t *tmp;
+	stack_t *tmp;
 
-        if ((*stack)->next)
-        {
-                tmp = (*stack)->next;
-                free(*stack);
-                (*stack) = tmp;
-                (*stack)->prev = NULL;
-        }
-        else
-        {
-                free(*stack);
-                *stack = NULL;
-        }
+	if ((*stack)->next)
+	{
+		tmp = (*stack)->next;
+		free(*stack);
+		(*stack) = tmp;
+		(*stack)->prev = NULL;
+	}
+	else
+	{
+		free(*stack);
+		*stack = NULL;
+	}
 }

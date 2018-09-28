@@ -5,6 +5,8 @@
  * Monty ByteCode command
  * @buf: buffer storing line to parse
  * @line_number: line number in bytecode instruction
+ * @fd: file descriptor
+ * @fpointer: file pointer
  */
 void interpret_command(char *buf, unsigned int line_number,
 		       int fd, FILE *fpointer)

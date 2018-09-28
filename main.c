@@ -25,15 +25,15 @@ int main(int argc, char *argv[])
 	/* read file line by line, call appropriate opcode */
 	line_number = 1;
 	while (getline(&buf, &bufsize, fpointer) != EOF)
-        {
-                i = strlen(buf);
-                if (i > 0)
-                        buf[i - 1] = '\0';
+	{
+		i = strlen(buf);
+		if (i > 0)
+			buf[i - 1] = '\0';
 		interpret_command(buf, line_number, fd, fpointer);
 		line_number++;
 	}
 	close(fd);
-        fclose(fpointer);
+	fclose(fpointer);
 	free(buf);
 	clear_stack(&stack);
 	return (EXIT_SUCCESS);
