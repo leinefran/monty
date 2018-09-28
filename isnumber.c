@@ -21,6 +21,8 @@ int isnumber(char *s)
 		s++;
 		i++;
 	}
+	if (*s == '\0')
+		return (-1);
 
 	for (; i < strlen(s); i++)
 	{
