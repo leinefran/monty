@@ -6,7 +6,7 @@
  * @stack: address to pointer of top of the stack
  * @line_number: line number of monty bytecode file
  */
-void div(stack_t **stack, unsigned int line_number)
+void _div(stack_t **stack, unsigned int line_number)
 {
 	stack_t *tmp;
         int value, len = 0;
