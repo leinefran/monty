@@ -50,8 +50,6 @@ void interpret_command(char *buf, unsigned int line_number,
 
 void (*get_instruc_func(char *s))(stack_t **stack, unsigned int line_number);
 int isnumber(char *s);
-int word_count(char *str);
-char **split_string(char *str);
 
 void push(stack_t **stack, unsigned int line_number);
 void pall(stack_t **stack, unsigned int line_number);
@@ -61,9 +59,8 @@ void swap(stack_t **stack, unsigned int line_number);
 void add(stack_t **stack, unsigned int line_number);
 void nop(stack_t **stack, unsigned int line_number);
 void sub(stack_t **stack, unsigned int line_number);
+void div(stack_t **stack, unsigned int line_number);
 
-void simple_pop(stack_t **stack);
 void clear_stack(stack_t **h);
-void free_array(char **arr);
-
+void simple_pop(stack_t **stack);
 #endif /* MONTY_H */

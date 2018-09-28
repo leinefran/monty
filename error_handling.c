@@ -45,7 +45,7 @@ int check_valid_instruc(char *s, unsigned int line_number, char *buf)
 	int i;
 	char *valid_commands[] = {"push", "pall", "pint",
 				  "pop", "swap", "add",
-				  "nop", "sub", NULL};
+				  "nop", "sub", "div",  NULL};
 
 	for (i = 0; valid_commands[i]; i++)
 	{
