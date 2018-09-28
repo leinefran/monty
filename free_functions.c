@@ -34,6 +34,7 @@ void clear_stack(stack_t **h)
 void free_array(char **arr)
 {
 	int i;
+
 	for (i = 0; arr[i]; i++)
 		free(arr[i]);
 	free(arr[i]);
