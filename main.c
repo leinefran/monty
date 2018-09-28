@@ -1,4 +1,5 @@
 #include "monty.h"
+stack_t *stack = NULL;
 
 /**
  * main - interpreter for Monty ByteCodes files
@@ -7,7 +8,6 @@
  *
  * Return: EXIT_SUCCESS upon success, else, EXIT_FAILURE
  */
-stack_t *stack = NULL;
 int main(int argc, char *argv[])
 {
 	int fd, i;
