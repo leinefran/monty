@@ -56,11 +56,13 @@ typedef struct instruction_s
         void (*f)(stack_t **stack, unsigned int line_number);
 } instruction_t;
 
-extern opcode_t *head;
+extern stack_t *stack;
 
 void check_arguments(int argc);
 void file_open_status(int fd, char *argv[]);
-void check_valid_instruc(char *s, unsigned int line_num);
+int check_valid_instruc(char *s, unsigned int line_num, char *buf);
+void interpret_command(char *buf, unsigned int line_number,
+		       int fd, FILE* fpointer);
 
 void (*get_instruc_func(char *s))(stack_t **stack, unsigned int line_number);
 int isnumber(char *s);
@@ -69,7 +71,6 @@ char **split_string(char *str);
 opcode_t *add_node_end(opcode_t **head, char **words);
 void add_empty_node(opcode_t **head);
 char *get_value_at_node_index(unsigned int line_number);
-char *get_opcode_at_node_index(unsigned int line_number);
 
 void push(stack_t **stack, unsigned int line_number);
 void pall(stack_t **stack, unsigned int line_number);

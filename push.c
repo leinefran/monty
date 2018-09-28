@@ -8,6 +8,7 @@
 void push(stack_t **stack, unsigned int line_number)
 {
 	stack_t *new;
+	char *argument;
 	int status;
 
 	if (!stack)
@@ -19,7 +20,8 @@ void push(stack_t **stack, unsigned int line_number)
 		exit(EXIT_FAILURE);
 	}
 
-	status = isnumber(get_value_at_node_index(line_number));
+	argument = strtok(NULL, " ");
+	status = isnumber(argument);
 	if (status == -1)
 	{
 		fprintf(stderr, "L%u: usage: push integer\n", line_number);
@@ -27,7 +29,7 @@ void push(stack_t **stack, unsigned int line_number)
 	}
 	else
 	{
-		new->n = atoi(get_value_at_node_index(line_number));
+		new->n = atoi(argument);
 	}
 
 	new->next = *stack;    /* element at the given line number */

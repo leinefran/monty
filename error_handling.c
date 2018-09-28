@@ -32,13 +32,15 @@ void file_open_status(int fd, char *argv[])
 
 /**
  * check_valid_instruc - check if the instruction passed is valid or not
- * @status: check return status of get_instruc_func
+ * @s: string to check
  * @line_number: number of line count
- * @opcode: the instruction passed to the function
+ * @buf: buf to free if command not found
  *
- * exits with EXIT_FAILURE if appropriate
+ * If command not found, print to stderr, free buf
+ * Return: 1 upon success
+ * -1 if command not found
  */
-void check_valid_instruc(char *s, unsigned int line_num)
+int check_valid_instruc(char *s, unsigned int line_number, char *buf)
 {
 	int i;
 	char *valid_commands[] = {"push", "pall", "pint",
@@ -47,9 +49,11 @@ void check_valid_instruc(char *s, unsigned int line_num)
 	for (i = 0; valid_commands[i]; i++)
 	{
 		if (strcmp(valid_commands[i], s) == 0)
-			return;
+			return (1);
 	}
 	fprintf(stderr, "L%u: unknown instruction %s\n",
-		line_num, s);
-	exit(EXIT_FAILURE);
+		line_number, s);
+	free(buf);
+	clear_stack(&stack);
+	return (-1);
 }
