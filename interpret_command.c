@@ -15,7 +15,7 @@ void interpret_command(char *buf, unsigned int line_number,
 	int status;
 
 	token = strtok(buf, " \t\n");
-	if (token == NULL)
+	if (token == NULL || *token == '#')
 		return;
 	status = check_valid_instruc(token, line_number, buf);
 	if (status == -1)
